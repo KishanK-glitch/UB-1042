@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sentinel-X Design System — All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Core backgrounds */
+    --background: 220 25% 4%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 22% 8%;
+    --card-foreground: 210 20% 90%;
+
+    --popover: 220 22% 8%;
+    --popover-foreground: 210 20% 90%;
+
+    /* Primary: Electric Cyan */
+    --primary: 185 100% 48%;
+    --primary-foreground: 220 25% 4%;
+
+    /* Secondary surface */
+    --secondary: 220 18% 12%;
+    --secondary-foreground: 210 20% 85%;
+
+    /* Muted */
+    --muted: 220 15% 14%;
+    --muted-foreground: 220 10% 50%;
+
+    /* Accent: Neon Amber */
+    --accent: 38 100% 55%;
+    --accent-foreground: 220 25% 4%;
+
+    /* Destructive: Alert Red */
+    --destructive: 0 88% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 16%;
+    --input: 220 18% 12%;
+    --ring: 185 100% 48%;
+
+    --radius: 0.75rem;
+
+    /* Custom Sentinel-X tokens */
+    --neon-cyan: 185 100% 48%;
+    --neon-red: 0 88% 60%;
+    --neon-amber: 38 100% 55%;
+    --neon-green: 140 70% 45%;
+    --neon-purple: 270 80% 65%;
+
+    --surface-1: 220 22% 8%;
+    --surface-2: 220 18% 12%;
+    --surface-3: 220 15% 16%;
+
+    --glow-cyan: 0 0 20px hsl(185 100% 48% / 0.5), 0 0 40px hsl(185 100% 48% / 0.2);
+    --glow-red: 0 0 20px hsl(0 88% 60% / 0.6), 0 0 40px hsl(0 88% 60% / 0.3);
+    --glow-amber: 0 0 20px hsl(38 100% 55% / 0.5), 0 0 40px hsl(38 100% 55% / 0.2);
+    --glow-green: 0 0 20px hsl(140 70% 45% / 0.5), 0 0 40px hsl(140 70% 45% / 0.2);
+
+    --sidebar-background: 220 25% 4%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 185 100% 48%;
+    --sidebar-primary-foreground: 220 25% 4%;
+    --sidebar-accent: 220 18% 12%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 15% 16%;
+    --sidebar-ring: 185 100% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Orbitron', monospace;
+  }
+
+  code, .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .neon-cyan {
+    color: hsl(var(--neon-cyan));
+  }
+  .neon-red {
+    color: hsl(var(--neon-red));
+  }
+  .neon-amber {
+    color: hsl(var(--neon-amber));
+  }
+  .neon-green {
+    color: hsl(var(--neon-green));
+  }
+  .glow-cyan {
+    box-shadow: var(--glow-cyan);
+  }
+  .glow-red {
+    box-shadow: var(--glow-red);
+  }
+  .glow-amber {
+    box-shadow: var(--glow-amber);
+  }
+  .glow-green {
+    box-shadow: var(--glow-green);
+  }
+  .text-glow-cyan {
+    text-shadow: 0 0 10px hsl(185 100% 48% / 0.8), 0 0 20px hsl(185 100% 48% / 0.4);
+  }
+  .text-glow-red {
+    text-shadow: 0 0 10px hsl(0 88% 60% / 0.8), 0 0 20px hsl(0 88% 60% / 0.4);
+  }
+  .border-neon-cyan {
+    border-color: hsl(var(--neon-cyan));
+  }
+  .border-neon-red {
+    border-color: hsl(var(--neon-red));
+  }
+  .border-neon-amber {
+    border-color: hsl(var(--neon-amber));
+  }
+  .border-neon-green {
+    border-color: hsl(var(--neon-green));
+  }
+  .bg-surface-1 {
+    background-color: hsl(var(--surface-1));
+  }
+  .bg-surface-2 {
+    background-color: hsl(var(--surface-2));
+  }
+  .bg-surface-3 {
+    background-color: hsl(var(--surface-3));
+  }
+  .scan-grid {
+    background-image: 
+      linear-gradient(hsl(185 100% 48% / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(185 100% 48% / 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  .sentinel-card {
+    @apply rounded-xl border bg-surface-1;
+    border-color: hsl(var(--surface-3));
+    background: linear-gradient(135deg, hsl(var(--surface-1)), hsl(220 22% 6%));
+  }
+  .sentinel-card-highlight {
+    @apply rounded-xl border bg-surface-1;
+    border-color: hsl(var(--neon-cyan) / 0.3);
+    background: linear-gradient(135deg, hsl(var(--surface-1)), hsl(185 30% 6%));
+    box-shadow: inset 0 0 30px hsl(185 100% 48% / 0.04), 0 0 0 1px hsl(185 100% 48% / 0.1);
+  }
+}
+
+/* Waveform animation bars */
+@keyframes waveBar {
+  0%, 100% { transform: scaleY(0.2); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes scan-line {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+@keyframes threat-appear {
+  0% { opacity: 0; transform: translateY(10px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes success-pop {
+  0% { opacity: 0; transform: scale(0.5); }
+  70% { transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes blink-alert {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes rotate-ring {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-wave-bar {
+  animation: waveBar 0.8s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.animate-scan-line {
+  animation: scan-line 2s linear infinite;
+}
+
+.animate-threat-appear {
+  animation: threat-appear 0.4s ease-out forwards;
+}
+
+.animate-success-pop {
+  animation: success-pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.animate-blink-alert {
+  animation: blink-alert 1s ease-in-out infinite;
+}
+
+.animate-rotate-ring {
+  animation: rotate-ring 3s linear infinite;
+}
